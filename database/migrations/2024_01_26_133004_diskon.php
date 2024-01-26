@@ -11,7 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('tbl_diskon', function (Blueprint $table) {
+            $table->id();
+            $table->bigInteger('total_belanja');
+            $table->integer('diskon')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -19,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('tbl_diskon');
     }
 };
