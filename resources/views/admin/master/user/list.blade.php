@@ -22,7 +22,7 @@
                     <div class="card-header">
                         <div class="d-flex align-items-center">
                             <h4 class="card-title">{{ $title }}</h4>
-                            <button type="button" class="btn btn-primary btn-round  ml-auto" data-toggle="modal" data-target="modalCreate">
+                            <button type="button" class="btn btn-primary btn-round  ml-auto" data-toggle="modal" data-target="#modalCreate">
                                 <i class="fa fa-plus"></i>Tambah Data
                             </button>
                         </div>
@@ -44,19 +44,19 @@
                                         $no = 1;
                                     @endphp
 
-                                    @foreach ($data_user as $row)
+                                    @foreach ($user as $row)
                                     <tr>
                                         <td>{{$no++}}</td>
                                         <td>{{ $row->name }}</td>
                                         <td>{{ $row->email }}</td>
                                         <td>{{ $row->role }}</td>
                                         <td>
-                                            <a href="modalEdit{{ $row->id }}" data-toggle="modal" class="btn btn-xs btn-primary">
+                                            <a href="#modalEdit{{ $row->id }}" data-toggle="modal" class="btn btn-xs btn-primary">
                                                 <i class="fa fa-edit">
                                                     Edit
                                                 </i>
                                             </a>
-                                            <a href="modalHapus{{ $row->id }}" data-toggle="modal" class="btn btn-xs btn-danger">
+                                            <a href="#modalHapus{{ $row->id }}" data-toggle="modal" class="btn btn-xs btn-danger">
                                                 <i class="fa fa-trash">
                                                     Hapus
                                                 </i>
@@ -88,7 +88,7 @@
                 <h5 class="modal-title">Create Data User</h5>
                 <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
             </div>
-            <form methode="POST" action="/user/store">
+            <form method="POST" action="/user/store">
             @csrf
                 <div class="modal-body">
                     <div class="form-group">
@@ -131,7 +131,7 @@
     Update Modal
 ***********************************-->
 
-@foreach ($data_user as $d)
+@foreach ($user as $d)
 
 <div class="modal fade" id="modalEdit{{ $d->id }}" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
@@ -140,7 +140,7 @@
                 <h5 class="modal-title">Edit Data User</h5>
                 <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
             </div>
-            <form methode="POST" action="/user/update/{{ $d->id }}">
+            <form method="POST" action="/user/update/{{ $d->id }}">
             @csrf
                 <div class="modal-body">
                     <div class="form-group">
@@ -185,9 +185,9 @@
 ***********************************-->
 
 
-@foreach ($data_user as $d)
+@foreach ($user as $d)
 
-<div class="modal fade" id="modalEdit{{ $d->id }}" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="modalHapus{{ $d->id }}" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
