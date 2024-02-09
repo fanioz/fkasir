@@ -188,7 +188,7 @@
     <script src="assets/plugins/tables/js/datatable/dataTables.bootstrap4.min.js"></script>
     <script src="assets/plugins/tables/js/datatable-init/datatable-basic.min.js"></script>
     <script src="assets/plugins/sweetalert/js/sweetalert.min.js"></script>
-    <script src="assets/plugins/bootstrap4-notify/js/bootstrap-notify.min.js"></script>
+    <script src="assets/plugins/bootstrap4-notify/bootstrap-notify.min.js"></script>
 
 </body>
 
