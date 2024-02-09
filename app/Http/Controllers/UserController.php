@@ -28,6 +28,7 @@ class UserController extends Controller
             'password'  => Hash::make($req->password),
             'role'      => $req->role,
         ]);
+        return redirect('/user')->with('success', 'Data berhasil ditambah');
     }
 
     public function update(Request $req, $id)
