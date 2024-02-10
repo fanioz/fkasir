@@ -9,10 +9,8 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
     <!-- Custom Stylesheet -->
-    <link href="assets/plugins/tables/css/datatable/dataTables.bootstrap4.min.css" rel="stylesheet">
-    {{-- 
+    <link href="assets/plugins/tables/css/datatable/dataTables.bootstrap4.min.css" rel="stylesheet">    
     <link href="assets/plugins/sweetalert/css/sweetalert.css" rel="stylesheet">
-    --}}
     <link href="assets/css/style.css" rel="stylesheet">
 
 </head>
@@ -128,7 +126,7 @@
                         <ul aria-expanded="false">
                             <li><a href="/user">Data User</a></li>
                             <li><a href="/jenisbarang">Data Jenis Barang</a></li>
-                            <li><a href=/barang">Data Barang</a></li>
+                            <li><a href="/barang">Data Barang</a></li>
                         </ul>
                     </li>
                     <li>
@@ -188,8 +186,16 @@
     <script src="assets/plugins/tables/js/datatable/dataTables.bootstrap4.min.js"></script>
     <script src="assets/plugins/tables/js/datatable-init/datatable-basic.min.js"></script>
     <script src="assets/plugins/sweetalert/js/sweetalert.min.js"></script>
-    <script src="assets/plugins/bootstrap4-notify/bootstrap-notify.min.js"></script>
-
-</body>
+    @if (Session::has('success'))
+        <script>
+            swal({
+                    title: "Berhasil",
+                    text: "{{ Session::get('success') }}",
+                    icon: "info",
+                    timer: 2000,
+                });
+        </script>
+    @endif
+</div>
 
 </html>
