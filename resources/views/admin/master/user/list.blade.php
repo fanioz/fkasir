@@ -23,7 +23,7 @@
                         <div class="d-flex align-items-center">
                             <h4 class="card-title">{{ $title }}</h4>
                             <button type="button" class="btn btn-primary btn-round  ml-auto" data-toggle="modal" data-target="#modalCreate">
-                                <i class="fa fa-plus"></i>Tambah Data
+                                <i class="fa fa-plus"></i> Tambah Data
                             </button>
                         </div>
                     </div>
@@ -85,7 +85,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Create Data User</h5>
+                <h5 class="modal-title">Create {{ $title }}</h5>
                 <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
             </div>
             <form method="POST" action="/user/store">
@@ -137,7 +137,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Edit Data User</h5>
+                <h5 class="modal-title">Edit {{ $title }}</h5>
                 <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
             </div>
             <form method="POST" action="/user/update/{{ $d->id }}">
@@ -191,7 +191,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Hapus Data User</h5>
+                <h5 class="modal-title">Hapus {{ $title }}</h5>
                 <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
             </div>
             <form methode="GET" action="/user/destroy/{{ $d->id }}">
