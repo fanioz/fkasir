@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\BarangController;
 use App\Http\Controllers\JenisBarangController;
 
 /*
@@ -18,8 +19,20 @@ use App\Http\Controllers\JenisBarangController;
 
 Route::get('/', [HomeController::class, 'index']);
 
-//Temporary Controller
+//Login Controller
+//Route::get('/', [AuthController::class,'index']);
+//Route::post('/ceklogin', [AuthController::class,'cek_login']);
+//Route::get('/logout', [AuthController::class,'logout']);
 
+//Temporary Role Controller
+/* 
+Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){});
+Route::group(['middleware' => ['auth', 'checkRole:kasir']], function(){
+    Route::get('/', [HomeController::class, 'index']);
+});
+ */
+
+ 
 //User
 Route::get('/user', [UserController::class, 'index']);
 Route::post('/user/store', [UserController::class, 'store']);
@@ -31,3 +44,9 @@ Route::get('/jenisbarang', [JenisBarangController::class, 'index']);
 Route::post('/jenisbarang/store', [JenisBarangController::class, 'store']);
 Route::post('/jenisbarang/update/{id}', [JenisBarangController::class, 'update']);
 Route::get('/jenisbarang/destroy/{id}', [JenisBarangController::class, 'destroy']);
+
+//Data Barang
+Route::get('/barang', [BarangController::class, 'index']);
+Route::post('/barang/store', [BarangController::class, 'store']);
+Route::post('/barang/update/{id}', [BarangController::class, 'update']);
+Route::get('/barang/destroy/{id}', [BarangController::class, 'destroy']);
