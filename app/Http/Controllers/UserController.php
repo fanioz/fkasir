@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -18,6 +19,20 @@ class UserController extends Controller
 
         //return view('home', $data);
         return view('admin.master.user.list', $data);
+    }
+
+    public function profile()
+    {
+        $user = User::all()->first();
+        $data = array(
+            'title'         => 'Setting Profile',
+            'data_profile'  => [$user],
+        );
+        // Actual code must be use auth:
+        //$user = Auth->id;
+        //'data_profile'  => User::where('id', $user)->get(),
+        //return view('home', $data);
+        return view('profile', $data);
     }
 
     public function store(Request $req)
@@ -43,6 +58,20 @@ class UserController extends Controller
                 ]);
         
         return redirect('/user')->with('success', 'Data berhasil diubah');
+    }
+
+    public function updateprofile(Request $req, $id)
+    {
+        User::where('id', $id)
+            ->where('id', $id)
+                ->update([
+                    'name'      => $req->name,
+                    'email'     => $req->email,
+                    'password'  => Hash::make($req->password),
+                    'role'      => $req->role,
+                ]);
+        
+        return redirect('/profile')->with('success', 'Data berhasil diubah');
     }
 
     public function destroy($id)

@@ -18,7 +18,6 @@ use App\Http\Controllers\JenisBarangController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
 
 //Login Controller
 //Route::get('/', [AuthController::class,'index']);
@@ -27,31 +26,44 @@ Route::get('/', [HomeController::class, 'index']);
 
 //Temporary Role Controller
 /* 
-Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){});
+Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
+*/
+
+    //User
+    Route::get('/user', [UserController::class, 'index']);
+    Route::post('/user/store', [UserController::class, 'store']);
+    Route::post('/user/update/{id}', [UserController::class, 'update']);
+    Route::get('/user/destroy/{id}', [UserController::class, 'destroy']);
+
+    //Jenis Barang
+    Route::get('/jenisbarang', [JenisBarangController::class, 'index']);
+    Route::post('/jenisbarang/store', [JenisBarangController::class, 'store']);
+    Route::post('/jenisbarang/update/{id}', [JenisBarangController::class, 'update']);
+    Route::get('/jenisbarang/destroy/{id}', [JenisBarangController::class, 'destroy']);
+
+    //Data Barang
+    Route::get('/barang', [BarangController::class, 'index']);
+    Route::post('/barang/store', [BarangController::class, 'store']);
+    Route::post('/barang/update/{id}', [BarangController::class, 'update']);
+    Route::get('/barang/destroy/{id}', [BarangController::class, 'destroy']);
+
+    //Set diskon
+    Route::get('/setdiskon', [DiskonController::class, 'index']);
+    Route::post('/setdiskon/update/{id}', [DiskonController::class, 'update']);
+
+/*
+});
+
 Route::group(['middleware' => ['auth', 'checkRole:kasir']], function(){
+*/
     Route::get('/', [HomeController::class, 'index']);
+    
+    //Set Profile
+    Route::get('/profile', [UserController::class, 'profile']);
+    Route::post('/profile/updateprofile/{id}', [UserController::class, 'updateprofile']);
+
+/*
 });
  */
 
  
-//User
-Route::get('/user', [UserController::class, 'index']);
-Route::post('/user/store', [UserController::class, 'store']);
-Route::post('/user/update/{id}', [UserController::class, 'update']);
-Route::get('/user/destroy/{id}', [UserController::class, 'destroy']);
-
-//Jenis Barang
-Route::get('/jenisbarang', [JenisBarangController::class, 'index']);
-Route::post('/jenisbarang/store', [JenisBarangController::class, 'store']);
-Route::post('/jenisbarang/update/{id}', [JenisBarangController::class, 'update']);
-Route::get('/jenisbarang/destroy/{id}', [JenisBarangController::class, 'destroy']);
-
-//Data Barang
-Route::get('/barang', [BarangController::class, 'index']);
-Route::post('/barang/store', [BarangController::class, 'store']);
-Route::post('/barang/update/{id}', [BarangController::class, 'update']);
-Route::get('/barang/destroy/{id}', [BarangController::class, 'destroy']);
-
-//Set diskon
-Route::get('/setdiskon', [DiskonController::class, 'index']);
-Route::post('/setdiskon/update/{id}', [DiskonController::class, 'update']);
