@@ -6,6 +6,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\DiskonController;
 use App\Http\Controllers\JenisBarangController;
+use App\Http\Controllers\TransaksiController;
+use App\Models\Transaksi;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,41 +31,44 @@ use App\Http\Controllers\JenisBarangController;
 Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
 */
 
-    //User
-    Route::get('/user', [UserController::class, 'index']);
-    Route::post('/user/store', [UserController::class, 'store']);
-    Route::post('/user/update/{id}', [UserController::class, 'update']);
-    Route::get('/user/destroy/{id}', [UserController::class, 'destroy']);
+//User
+Route::get('/user', [UserController::class, 'index']);
+Route::post('/user/store', [UserController::class, 'store']);
+Route::post('/user/update/{id}', [UserController::class, 'update']);
+Route::get('/user/destroy/{id}', [UserController::class, 'destroy']);
 
-    //Jenis Barang
-    Route::get('/jenisbarang', [JenisBarangController::class, 'index']);
-    Route::post('/jenisbarang/store', [JenisBarangController::class, 'store']);
-    Route::post('/jenisbarang/update/{id}', [JenisBarangController::class, 'update']);
-    Route::get('/jenisbarang/destroy/{id}', [JenisBarangController::class, 'destroy']);
+//Jenis Barang
+Route::get('/jenisbarang', [JenisBarangController::class, 'index']);
+Route::post('/jenisbarang/store', [JenisBarangController::class, 'store']);
+Route::post('/jenisbarang/update/{id}', [JenisBarangController::class, 'update']);
+Route::get('/jenisbarang/destroy/{id}', [JenisBarangController::class, 'destroy']);
 
-    //Data Barang
-    Route::get('/barang', [BarangController::class, 'index']);
-    Route::post('/barang/store', [BarangController::class, 'store']);
-    Route::post('/barang/update/{id}', [BarangController::class, 'update']);
-    Route::get('/barang/destroy/{id}', [BarangController::class, 'destroy']);
+//Data Barang
+Route::get('/barang', [BarangController::class, 'index']);
+Route::post('/barang/store', [BarangController::class, 'store']);
+Route::post('/barang/update/{id}', [BarangController::class, 'update']);
+Route::get('/barang/destroy/{id}', [BarangController::class, 'destroy']);
 
-    //Set diskon
-    Route::get('/setdiskon', [DiskonController::class, 'index']);
-    Route::post('/setdiskon/update/{id}', [DiskonController::class, 'update']);
+//Set diskon
+Route::get('/setdiskon', [DiskonController::class, 'index']);
+Route::post('/setdiskon/update/{id}', [DiskonController::class, 'update']);
 
 /*
 });
 
-Route::group(['middleware' => ['auth', 'checkRole:kasir']], function(){
+Route::group(['middleware' => ['auth', 'checkRole:admin,kasir']], function(){
 */
-    Route::get('/', [HomeController::class, 'index']);
-    
-    //Set Profile
-    Route::get('/profile', [UserController::class, 'profile']);
-    Route::post('/profile/updateprofile/{id}', [UserController::class, 'updateprofile']);
+Route::get('/', [HomeController::class, 'index']);
+
+//Set Profile
+Route::get('/profile', [UserController::class, 'profile']);
+Route::post('/profile/updateprofile/{id}', [UserController::class, 'updateprofile']);
+
+
+//Data Transaksi
+Route::get('/transaksi', [TransaksiController::class, 'index']);
+Route::post('/transaksi/create', [TransaksiController::class, 'create']);
 
 /*
 });
  */
-
- 
