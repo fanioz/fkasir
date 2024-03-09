@@ -67,7 +67,7 @@ Route::post('/profile/updateprofile/{id}', [UserController::class, 'updateprofil
 
 //Data Transaksi
 Route::get('/transaksi', [TransaksiController::class, 'index']);
-Route::post('/transaksi/create', [TransaksiController::class, 'create']);
+Route::get('/transaksicreate', [TransaksiController::class, 'create']);
 
 /*
 });
