@@ -2,12 +2,10 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
- 
+
 class UserSeeder extends Seeder
 {
     /**
@@ -21,6 +19,11 @@ class UserSeeder extends Seeder
             'password' => Hash::make('admin'),
             'role'     => 'admin',
         ]);
+        DB::table('users')->insert([
+            'name'     => 'kasir',
+            'email'    => 'kasir@example.com',
+            'password' => Hash::make('kasir'),
+            'role'     => 'kasir',
+        ]);
     }
 }
-o
