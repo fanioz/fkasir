@@ -23,15 +23,11 @@ class UserController extends Controller
 
     public function profile()
     {
-        $user = User::all()->first();
+        $user = Auth::user();
         $data = array(
             'title'         => 'Setting Profile',
             'data_profile'  => [$user],
         );
-        // Actual code must be use auth:
-        //$user = Auth->id;
-        //'data_profile'  => User::where('id', $user)->get(),
-        //return view('home', $data);
         return view('profile', $data);
     }
 
@@ -50,13 +46,13 @@ class UserController extends Controller
     {
         User::where('id', $id)
             ->where('id', $id)
-                ->update([
-                    'name'      => $req->name,
-                    'email'     => $req->email,
-                    'password'  => Hash::make($req->password),
-                    'role'      => $req->role,
-                ]);
-        
+            ->update([
+                'name'      => $req->name,
+                'email'     => $req->email,
+                'password'  => Hash::make($req->password),
+                'role'      => $req->role,
+            ]);
+
         return redirect('/user')->with('success', 'Data berhasil diubah');
     }
 
@@ -64,13 +60,13 @@ class UserController extends Controller
     {
         User::where('id', $id)
             ->where('id', $id)
-                ->update([
-                    'name'      => $req->name,
-                    'email'     => $req->email,
-                    'password'  => Hash::make($req->password),
-                    'role'      => $req->role,
-                ]);
-        
+            ->update([
+                'name'      => $req->name,
+                'email'     => $req->email,
+                'password'  => Hash::make($req->password),
+                'role'      => $req->role,
+            ]);
+
         return redirect('/profile')->with('success', 'Data berhasil diubah');
     }
 
