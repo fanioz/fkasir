@@ -168,6 +168,16 @@
             });
         </script>
     @endif
+    @if ($errors->any())
+        <script>
+            swal({
+                title: "Error",
+                text: "{{ $errors->first() }}",
+                icon: "error",
+                timer: 2000,
+            });
+        </script>
+    @endif
     </div>
 
 </html>
