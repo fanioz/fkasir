@@ -3,7 +3,6 @@
 use App\Models\Transaksi;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\DiskonController;
@@ -64,7 +63,7 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
 
 Route::group(['middleware' => ['auth', 'checkRole:admin,kasir']], function () {
 
-  Route::get('/', [HomeController::class, 'index']);
+  Route::get('/', [AuthController::class, 'dashboard'])->name('dashboard');
 
   //Set Profile
   Route::get('/profile', [UserController::class, 'profile']);
