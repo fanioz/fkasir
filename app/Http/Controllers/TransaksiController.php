@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
 
+use App\Models\Barang;
+use App\Models\JenisBarang;
+
 class TransaksiController extends Controller
 {
     //
@@ -23,6 +26,10 @@ class TransaksiController extends Controller
     {
         $data = array(
             'title'         => 'Create Data Transaksi',
+            'data_jenis'    => JenisBarang::all(),
+            'data_barang'   => Barang::join('tbl_jenis_barang', 'tbl_jenis_barang.id', '=', 'tbl_barang.id_jenis')
+                ->select('tbl_barang.*', 'tbl_jenis_barang.nama_jenis')
+                ->get(),
         );
 
         //return view('home', $data);

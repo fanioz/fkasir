@@ -5,11 +5,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title> <{{ $title }}></title>
+    <title>
+        <{{ $title }}>
+    </title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
     <!-- Custom Stylesheet -->
-    <link href="assets/plugins/tables/css/datatable/dataTables.bootstrap4.min.css" rel="stylesheet">    
+    <link href="assets/plugins/tables/css/datatable/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="assets/plugins/sweetalert/css/sweetalert.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
 
@@ -23,7 +25,8 @@
     <div id="preloader">
         <div class="loader">
             <svg class="circular" viewBox="25 25 50 50">
-                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3"
+                    stroke-miterlimit="10" />
             </svg>
         </div>
     </div>
@@ -31,7 +34,7 @@
         Preloader end
     ********************-->
 
-    
+
     <!--**********************************
         Main wrapper start
     ***********************************-->
@@ -58,22 +61,22 @@
         <!--**********************************
             Header start
         ***********************************-->
-        <div class="header">    
+        <div class="header">
             <div class="header-content clearfix">
-                
+
                 <div class="nav-control">
                     <div class="hamburger">
                         <span class="toggle-icon"><i class="icon-menu"></i></span>
                     </div>
                 </div>
                 <div class="header-left">
-                    
+
                 </div>
                 <div class="header-right">
-                    <ul class="clearfix">                      
-                        
+                    <ul class="clearfix">
+
                         <li class="icons dropdown">
-                            <div class="user-img c-pointer position-relative"   data-toggle="dropdown">
+                            <div class="user-img c-pointer position-relative" data-toggle="dropdown">
                                 <span class="activity active"></span>
                                 <img src="assets/images/user/1.png" height="40" width="40" alt="">
                             </div>
@@ -83,8 +86,8 @@
                                         <li>
                                             <a href="/profile"><i class="icon-user"></i> <span>Profile</span></a>
                                         </li>
-                                        
-                                        
+
+
                                         <hr class="my-2">
                                         <li><a href="/logout"><i class="icon-key"></i> <span>Logout</span></a></li>
                                     </ul>
@@ -102,23 +105,23 @@
         <!--**********************************
             Sidebar start
         ***********************************-->
-        <div class="nk-sidebar">           
+        <div class="nk-sidebar">
             <div class="nk-nav-scroll">
                 <ul class="metismenu" id="menu">
                     <li class="nav-label">Dashboard</li>
                     <li>
-                        <a href="#" aria-expanded="false">
+                        <a href="{{ route('dashboard') }}" aria-expanded="false">
                             <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
                         </a>
                     </li>
-                    
+
                     <li class="nav-label">UI Components</li>
                     <li>
                         <a href="/setdiskon" aria-expanded="false">
                             <i class="icon-speedometer menu-icon"></i><span class="nav-text">Setting Diskon</span>
                         </a>
                     </li>
-                    
+
                     <li class="mega-menu mega-menu-sm">
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                             <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Data Master</span>
@@ -149,14 +152,14 @@
         <!--**********************************
             Content body start
         ***********************************-->
-        
+
         @yield('content')
 
         <!--**********************************
             Content body end
         ***********************************-->
-        
-        
+
+
         <!--**********************************
             Footer start
         ***********************************-->
@@ -189,13 +192,13 @@
     @if (Session::has('success'))
         <script>
             swal({
-                    title: "Berhasil",
-                    text: "{{ Session::get('success') }}",
-                    icon: "info",
-                    timer: 2000,
-                });
+                title: "Berhasil",
+                text: "{{ Session::get('success') }}",
+                icon: "info",
+                timer: 2000,
+            });
         </script>
     @endif
-</div>
+    </div>
 
 </html>

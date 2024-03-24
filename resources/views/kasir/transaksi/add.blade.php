@@ -1,8 +1,8 @@
 @extends('layout.layout')
 @section('content')
     <!--**********************************
-                        Content body start
-                    ***********************************-->
+                            Content body start
+                        ***********************************-->
     <div class="content-body">
 
         <div class="row page-titles mx-0">
@@ -109,6 +109,9 @@
                             <label>Jenis Barang</label>
                             <select class="form-control" name="id_barang" required>
                                 <option value="" hidden>--- Pilih Nama Barang ---</option>
+                                @foreach ($data_barang as $row)
+                                    <option value="{{ $row->id }}">{{ $row->nama_barang }}</option>
+                                @endforeach
 
                             </select>
                         </div>
@@ -131,6 +134,6 @@
         </div>
     </div>
     <!--**********************************
-                        Content body end
-                    ***********************************-->
+                            Content body end
+                        ***********************************-->
 @endsection
