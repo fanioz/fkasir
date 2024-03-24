@@ -1,40 +1,43 @@
 @extends('layout.layout')
 @section('content')
     <!--**********************************
-                        Content body start
-                        ***********************************-->
+                                                                    Content body start
+                                                                    ***********************************-->
     <div class="content-body">
 
         <div class="container-fluid mt-3">
             <div class="row">
-                <div class="col-lg-3 col-sm-6">
-                    <div class="card gradient-1">
-                        <div class="card-body">
-                            <h3 class="card-title text-white">Products Sold</h3>
-                            <div class="d-inline-block">
-                                <h2 class="text-white">4565</h2>
-                                <p class="text-white mb-0">Jan - March 2019</p>
+                @if (Auth::user()->role == 'admin')
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card gradient-1">
+                            <div class="card-body">
+                                <h3 class="card-title text-white">Data Barang</h3>
+                                <div class="d-inline-block">
+                                    <h2 class="text-white">4565</h2>
+                                    <p class="text-white mb-0">Jan - March 2019</p>
+                                </div>
+                                <span class="float-right display-5 opacity-5"><i class="fa fa-shopping-cart"></i></span>
                             </div>
-                            <span class="float-right display-5 opacity-5"><i class="fa fa-shopping-cart"></i></span>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="card gradient-2">
-                        <div class="card-body">
-                            <h3 class="card-title text-white">Net Profit</h3>
-                            <div class="d-inline-block">
-                                <h2 class="text-white">$ 8541</h2>
-                                <p class="text-white mb-0">Jan - March 2019</p>
+                @else
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card gradient-1">
+                            <div class="card-body">
+                                <h3 class="card-title text-white">Transaksi Hari Ini</h3>
+                                <div class="d-inline-block">
+                                    <h2 class="text-white">4565</h2>
+                                    <p class="text-white mb-0">Jan - March 2019</p>
+                                </div>
+                                <span class="float-right display-5 opacity-5"><i class="fa fa-shopping-cart"></i></span>
                             </div>
-                            <span class="float-right display-5 opacity-5"><i class="fa fa-money"></i></span>
                         </div>
                     </div>
-                </div>
+                @endif
                 <div class="col-lg-3 col-sm-6">
                     <div class="card gradient-3">
                         <div class="card-body">
-                            <h3 class="card-title text-white">New Customers</h3>
+                            <h3 class="card-title text-white">Data Transaksi</h3>
                             <div class="d-inline-block">
                                 <h2 class="text-white">4565</h2>
                                 <p class="text-white mb-0">Jan - March 2019</p>
@@ -44,14 +47,27 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
-                    <div class="card gradient-4">
+                    <div class="card gradient-2">
                         <div class="card-body">
-                            <h3 class="card-title text-white">Customer Satisfaction</h3>
+                            <h3 class="card-title text-white">Pendapatan Hari Ini</h3>
                             <div class="d-inline-block">
-                                <h2 class="text-white">99%</h2>
+                                <h3 class="text-white">Rp 8.012.541</h3>
                                 <p class="text-white mb-0">Jan - March 2019</p>
                             </div>
-                            <span class="float-right display-5 opacity-5"><i class="fa fa-heart"></i></span>
+                            <span class="float-right display-5 opacity-5"><i class="fa fa-money"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-sm-6">
+                    <div class="card gradient-4">
+                        <div class="card-body">
+                            <h3 class="card-title text-white">Total Pendapatan</h3>
+                            <div class="d-inline-block">
+                                <h3 class="text-white">Rp 28.012.541</h3>
+                                <p class="text-white mb-0">Jan - March 2019</p>
+                            </div>
+                            <span class="float-right display-5 opacity-5"><i class="fa fa-money"></i></span>
                         </div>
                     </div>
                 </div>
@@ -108,7 +124,7 @@
                 <div class="col-lg-6 col-md-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Order Summary</h4>
+                            <h4 class="card-title">Data Stok menipis</h4>
                             <div id="morris-bar-chart"></div>
                         </div>
                     </div>
@@ -568,9 +584,9 @@
         <!-- #/ container -->
     </div>
     <!--**********************************
-                        Content body end
+                                                                    Content body end
 
-                        ***********************************-->
+                                                                    ***********************************-->
     <!-- Chartjs -->
     <script src="assets/plugins/chart.js/Chart.bundle.min.js"></script>
     <script src="assets/js/dashboard/dashboard-1.js"></script>
